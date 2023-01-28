@@ -25,3 +25,34 @@
 “ед”: [“шт.”]
 }
 """
+
+product = []
+i = 0
+while input('Добавить товар? (1-да): ') == '1':
+    i += 1
+    p_name = input('Ведите название товара: ')
+    p_price = int(input('Ведите цену товара: '))
+    p_count = int(input('Ведите количество: '))
+    p_unit = input('Ведите единица измерения: ')
+    product.append(
+        (i, {"name": p_name, "price": p_price, "count": p_count, "unit": p_unit}))
+
+print('Список с товарами:')
+print(product)
+
+names = []
+prices = []
+counts = []
+units = []
+
+for p_el in product:
+    names.append(p_el[1].get("name"))
+    prices.append(p_el[1].get("price"))
+    counts.append(p_el[1].get("count"))
+    units.append(p_el[1].get("unit"))
+
+units = set(units)
+dct = {"names": names, "prices": prices, "counts": counts, "units": units}
+
+print('Словарь с характеристиками товара:')
+print(dct)
